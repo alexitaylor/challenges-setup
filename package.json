@@ -1,0 +1,17 @@
+{
+  "name": "challenges-setup-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alexitaylor",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^3.0.0",
+    "date-fns": "^2.9.0",
+    "faker": "^4.1.0"
+  }
+}

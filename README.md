@@ -7,8 +7,8 @@ Some scripts to setup challenges with users and challenge data. In `configs/conf
 - Fork the repo
 
 ```bash
-$ git clone git@https://github.com/<yourusername>/challenges-setup.git 
-$ cd challenges-setup
+$ git clone git@https://github.com/<yourusername>/challengesV2-data-setup.git 
+$ cd challengesV2-data-setup
 $ npm i
 ```
 

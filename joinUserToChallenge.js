@@ -1,6 +1,7 @@
 const axios = require('axios');
 const chalk = require('chalk');
 const fs = require('fs');
+const utils = require('./utils');
 
 const joinUserToChallenge = async (challengeId, rallyId) => {
 	try {
@@ -24,10 +25,7 @@ const joinUserToChallenge = async (challengeId, rallyId) => {
 const joinUsersToChallenge = async (challengeId) => {
 	try {
 		console.log(chalk.yellow(`Joining group of users to challenge...`));
-		// Change file or generate new users if you need a new set of users
-		const userDataFile = 'users_1.json';
-		const usersJson = fs.readFileSync(`./user_data/${userDataFile}`, 'utf8');
-		const users = JSON.parse(usersJson);
+		const users = utils.readUserData();
 
 		for (var i = 0; i < users.length; i++) {
 			await joinUserToChallenge(challengeId, users[i].rallyId);

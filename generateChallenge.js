@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const faker = require('faker');
 const dateFns = require('date-fns');
 const fs = require('fs');
+const config = require('./configs/configs');
 
 const challengeInstance = {
   "instanceDetails": {
@@ -162,7 +163,7 @@ const saveChallengeId = (challengeId) => {
 const createChallenge = async () => {
 	try {
 		console.log(chalk.yellow(`Creating challenge...`));
-		const reqUrl = 'https://challenges-challengesv2.sad-noyce.rally-dev.com/internal/challengesv2/v1/instances/editor/foo';
+		const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/editor/foo`;
 		const challengeBody = generateChallenge();
 		const res = await axios.post(reqUrl, challengeBody, {
 	    	headers: {

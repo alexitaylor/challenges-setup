@@ -3,6 +3,7 @@ const axios = require('axios');
 const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
+const config = require('./configs/configs');
 
 const hostname = '127.0.0.1';
 const port = 3333;
@@ -24,6 +25,8 @@ const start = async () => {
 
 	console.log(chalk.green('✅ Script ended'));
 };
+
+console.log(config);
 
 // start();
 

@@ -2,11 +2,12 @@ const axios = require('axios');
 const chalk = require('chalk');
 const fs = require('fs');
 const utils = require('./utils');
+const config = require('./configs/configs');
 
 const joinUserToChallenge = async (challengeId, rallyId) => {
 	try {
 		console.log(chalk.yellow(`Joining user to challenge...`));
-		const reqUrl = `https://challenges-challengesv2.sad-noyce.rally-dev.com/internal/challengesv2/v1/instances/${challengeId}/editor/${rallyId}/join`;
+		const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/${challengeId}/editor/${rallyId}/join`;
 
 		const res = await axios.post(reqUrl, {}, {
 	    	headers: {
@@ -37,6 +38,5 @@ const joinUsersToChallenge = async (challengeId) => {
 	}
 };
 
-joinUsersToChallenge('241bf2cc-d2fd-4e14-8b0b-95b3bbc3f34a');
-
-// joinUserToChallenge('241bf2cc-d2fd-4e14-8b0b-95b3bbc3f34a', 'aed9ff4d-dc1d-46ad-9a51-3e6b2800694a');
+// Pass in challenge ID
+joinUsersToChallenge(config.CHALLENGE_ID);

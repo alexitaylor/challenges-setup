@@ -2,11 +2,12 @@ const axios = require('axios');
 const chalk = require('chalk');
 const fs = require('fs');
 const utils = require('./utils');
+const config = require('./configs/configs');
 
 const postCheckins = async(challengeId, rallyId) => {
 	try {
 		console.log(chalk.yellow(`Posting checkin...`));
-		const reqUrl = `https://challenges-challengesv2.sad-noyce.rally-dev.com/internal/challengesv2/v1/instances/${challengeId}/editor/${rallyId}/members/checkins`;
+		const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/${challengeId}/editor/${rallyId}/members/checkins`;
 		const manualCheckinAmount = utils.getRandomNumber(20);
 		const body = {
 			isManual: true,
@@ -42,4 +43,4 @@ const generatePostCheckins = async (challengeId) => {
 }
 }
 
-generatePostCheckins('241bf2cc-d2fd-4e14-8b0b-95b3bbc3f34a');
+generatePostCheckins(config.CHALLENGE_ID);

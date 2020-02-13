@@ -1,6 +1,7 @@
 const fs = require('fs');
 const axios = require('axios');
 const chalk = require('chalk');
+const config = require('./configs/configs');
 
 const createUser = async () => {
 	try {
@@ -9,7 +10,7 @@ const createUser = async () => {
 	const res = await axios.get(url, {
     	headers: {
     		'accept': 'application/json',
-    		'env': 'sad-noyce.rally-dev.com'
+    		'env': `${config.TENANT}.rally-dev.com`
     	}
   	});
   	const user = res.data;

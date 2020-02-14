@@ -14,12 +14,12 @@ const postCheckins = async(challengeId, rallyId) => {
 			manualCheckinAmount,
 		};
 		const res = await axios.post(reqUrl, body, {
-	    	headers: {
-	    		'Content-Type': 'application/json',
-	    		'Accept': 'application/json',
-	    		'X-Rally-User-Timezone': 'America/New_York',
-	    	}
-	    });
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'X-Rally-User-Timezone': 'America/New_York',
+			}
+		});
 
 		console.log(chalk.green(`✅ Successfully posted checkin for user, ${rallyId}, with manual checkin amount of ${manualCheckinAmount}.`));
 	} catch (e) {
@@ -32,7 +32,7 @@ const generatePostCheckins = async (challengeId) => {
 	try {
 		console.log(chalk.yellow(`Starting checkins for users...`));
 		const users = utils.readUserData();
-		
+
 		for (var i = 0; i < users.length; i++) {
 			await postCheckins(challengeId, users[i].rallyId);
 		}
@@ -40,7 +40,7 @@ const generatePostCheckins = async (challengeId) => {
 		console.log(chalk.green(`✅ Successfully posted checkins for group of users.`));
 	} catch (e) {
 		console.log(chalk.red(`❌ Error unable to post checkins for group of users. ${e}`));
-}
-}
+	}
+};
 
 generatePostCheckins(config.CHALLENGE_ID);

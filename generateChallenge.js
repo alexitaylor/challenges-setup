@@ -124,63 +124,62 @@ const teamChallenge = {
 }
 
 const generateChallenge = (isTeam) => {
-	try {
-		console.log(chalk.yellow(`Generating challenge...`));
-		const now  = new Date();
-		var randomNumber = faker.random.number();
-		const challenge = isTeam ? teamChallenge : challengeInstance;
-		challenge.instanceDetails.name = isTeam ? `Challenge TEAM ${randomNumber}` : `Challenge ${randomNumber}`;
-		challenge.instanceDetails.dates = {
-		 "startDate": now,
-	      "endDate": dateFns.addDays(now, 10),
-	      "openDate": now,
-	      "lastJoinableDate": dateFns.addDays(now, 2),
-	      "repeatDetails": {
-	        "numRepeat": 0,
-	        "repeatGapInterval": 0,
-	        "repeatUnit": "days"
-	      }
-		};
+  try {
+    console.log(chalk.yellow(`Generating challenge...`));
+    const now  = new Date();
+    var randomNumber = faker.random.number();
+    const challenge = isTeam ? teamChallenge : challengeInstance;
+    challenge.instanceDetails.name = isTeam ? `Challenge TEAM ${randomNumber}` : `Challenge ${randomNumber}`;
+    challenge.instanceDetails.dates = {
+      "startDate": now,
+      "endDate": dateFns.addDays(now, 10),
+      "openDate": now,
+      "lastJoinableDate": dateFns.addDays(now, 2),
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    };
 
 
-    	console.log(chalk.green(`✅ Generated challenge: ${challenge.instanceDetails.name}`));
-    	return challenge;
-	} catch (e) {
-		throw `❌ Error unable to generate challenge. ${e}`;
-	}
+    console.log(chalk.green(`✅ Generated challenge: ${challenge.instanceDetails.name}`));
+    return challenge;
+  } catch (e) {
+    throw `❌ Error unable to generate challenge. ${e}`;
+  }
 };
 
 const saveChallengeId = (challengeId) => {
-	try {
-	  console.log(chalk.yellow(`Saving challenge ID to file...`));
-	  fs.appendFileSync('./challenge_data/challenge_ids.txt', `\r\n${challengeId}`);
-	  console.log(chalk.green(`✅ Saved challenge ID to file!`));
-	} catch (e) {
-	  throw `❌ Error unable to write challenge ID to file. ${e}`;
-	}
+  try {
+    console.log(chalk.yellow(`Saving challenge ID to file...`));
+    fs.appendFileSync('./challenge_data/challenge_ids.txt', `\r\n${challengeId}`);
+    console.log(chalk.green(`✅ Saved challenge ID to file!`));
+  } catch (e) {
+    throw `❌ Error unable to write challenge ID to file. ${e}`;
+  }
 }
 
 const createChallenge = async () => {
-	try {
-		console.log(chalk.yellow(`Creating challenge...`));
-		const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/editor/foo`;
-		const challengeBody = generateChallenge();
-		const res = await axios.post(reqUrl, challengeBody, {
-	    	headers: {
-	    		'Content-Type': 'application/json',
-	    		'Accept': 'application/json',
-	    	}
-	    });
-	    const challenge = res.data;
+  try {
+    console.log(chalk.yellow(`Creating challenge...`));
+    const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/editor/foo`;
+    const challengeBody = generateChallenge();
+    const res = await axios.post(reqUrl, challengeBody, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    });
+    const challenge = res.data;
 
-	    saveChallengeId(challenge.challengeId);
+    saveChallengeId(challenge.challengeId);
 
-    	console.log(chalk.green(`✅ Generated challenge: ${challenge.challengeId}`));
-    	return challenge;
-	} catch (e) {
-		throw `❌ Error unable to create challenge. ${e}`;
-	}
+    console.log(chalk.green(`✅ Generated challenge: ${challenge.challengeId}`));
+    return challenge;
+  } catch (e) {
+    throw `❌ Error unable to create challenge. ${e}`;
+  }
 };
 
 createChallenge();
-

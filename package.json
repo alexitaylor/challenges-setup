@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generateUsers": "node generateUsers.js",
+    "generateUsers": "node usersScripts/generateUsers.js ",
+    "createUser": "node usersScripts/createUser.js ",
     "generateChallenge": "node generateChallenge.js",
     "joinUsersToChallenge": "node joinUsersToChallenge.js",
     "postCheckins": "node postCheckins.js"

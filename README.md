@@ -30,3 +30,5 @@ This will join a group of users to challenge. To run this script, the `generateU
 ### `npm run postCheckins` or `node challengesScripts/postCheckins.js`
 This script will post a random check-in amount for a group of users. Remember to update the `configs/configs.js` file with the appropriate `CHALLENGE_ID` and set of users config const, `USER_DATA_FILE`.
 
+### `npm run deleteChallenges` or `node challengesScripts/deleteChallenges.js`
+This will delete a list of challenges. You will have to provide a list of challenge IDs in `challengesScripts/deleteChallenges.js`.

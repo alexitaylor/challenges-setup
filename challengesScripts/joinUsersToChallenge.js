@@ -3,16 +3,16 @@ const chalk = require('chalk');
 const utils = require('../utils');
 const config = require('../configs/configs');
 
+///internal/challengesv2/v1/instances/47b24acf-979f-4ca6-9b00-7a4a991c2e52/editor/47b24acf-979f-4ca6-9b00-7a4a991c2e52/join'
 const joinUserToChallenge = async (challengeId, rallyId) => {
 	try {
 		console.log(chalk.yellow(`Joining user to challenge...`));
 		const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/${challengeId}/editor/${rallyId}/join`;
 
-		const res = await axios.post(reqUrl, {}, {
+		 await axios.post(reqUrl, {}, {
 			headers: {
 				'Content-Type': 'application/json',
-				'Accept': 'application/json',
-				'X-Rally-User-Timezone': 'America/New_York',
+				'Accept': 'application/json'
 			}
 		});
 

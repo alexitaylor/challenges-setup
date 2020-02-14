@@ -6,136 +6,36 @@ const fs = require('fs');
 const template = require('lodash').template;
 const path = require('path');
 const config = require('../configs/configs');
+const { DEFAULT_CHALLENGE, TEAM_CHALLENGE, WATER_WARRIOR, FOOD, MEDITATION, KINDNESS } = require('./challengeData');
 
-const challengeInstance = {
-  "instanceDetails": {
-    "name": "My Challenge",
-    "status": "active",
-    "description": "running challenge",
-    "colorCode": "49FA43",
-    "dates": {
-      "startDate": "2020-02-13T02:22:06.609Z",
-      "endDate": "2020-02-29T02:22:06.609Z",
-      "openDate": "2020-02-13T02:22:06.609Z",
-      "lastJoinableDate": "2020-02-14T02:22:06.609Z",
-      "repeatDetails": {
-        "numRepeat": 0,
-        "repeatGapInterval": 0,
-        "repeatUnit": "days"
-      }
-    },
-    "sponsorship": {
-      "primaryClient": "",
-      "primaryPartner": "",
-      "primaryAffiliation": ""
-    },
-    "isTeam": false,
-    "isInviteOnly": false,
-    "isUserCreated": false,
-    "isCityWalk": false,
-    "isIncentivized": false
-  },
-  "milestoneDetails": {
-    "milestoneAmount": {
-      "interval": 20,
-      "coinValue": 50
-    },
-    "minorCheckpoints": {
-      "interval": 5,
-      "coinValue": 5
-    },
-    "majorCheckpoints": {
-      "interval": 10,
-      "coinValue": 10
-    }
-  },
-  "checkinDetails": {
-    "activityInfo": {
-      "activityLabel": "Running & Walking",
-      "activityType": "runningWalking",
-      "unit": "miles"
-    },
-    "dailyEntryCap": 50,
-    "scoringMethod": "total",
-    "allowManualCheckin": true,
-    "checkinMethods": [
-      "manual",
-      "rally"
-    ],
-    "isDualCheckinAllowed": true
+const getChallengeType = (type) => {
+  switch(type) {
+    case 'TEAM':
+      return TEAM_CHALLENGE;
+    case 'WATER':
+      return WATER_WARRIOR;
+    case 'FOOD':
+      return FOOD;
+    case 'MEDITATION':
+      return MEDITATION;
+    case 'KINDNESS':
+      return KINDNESS;
+    default:
+      return DEFAULT_CHALLENGE
   }
 };
 
-const teamChallenge = {
-  "instanceDetails": {
-    "name": "My Challenge TEAM",
-    "status": "active",
-    "description": "running challenge",
-    "colorCode": "49FA43",
-    "dates": {
-      "startDate": "",
-      "endDate": "",
-      "openDate": "",
-      "lastJoinableDate": "",
-      "repeatDetails": {
-        "numRepeat": 0,
-        "repeatGapInterval": 0,
-        "repeatUnit": "days"
-      }
-    },
-    "sponsorship": {
-      "primaryClient": "",
-      "primaryPartner": "",
-      "primaryAffiliation": ""
-    },
-    "isTeam": true,
-    "isInviteOnly": false,
-    "isUserCreated": false,
-    "isCityWalk": false,
-    "isIncentivized": true
-  },
-  "milestoneDetails": {
-    "milestoneAmount": {
-      "interval": 0.5,
-      "coinValue": 5
-    },
-    "minorCheckpoints": {
-      "interval": 1,
-      "coinValue": 10
-    },
-    "majorCheckpoints": {
-      "interval": 20,
-      "coinValue": 0
-    }
-  },
-  "checkinDetails": {
-    "activityInfo": {
-      "activityLabel": "Running & Walking",
-      "activityType": "runningWalking",
-      "unit": "miles"
-    },
-    "dailyEntryCap": 50,
-    "scoringMethod": "total",
-    "allowManualCheckin": true,
-    "checkinMethods": [
-      "manual",
-      "rally"
-    ],
-    "isDualCheckinAllowed": true
-  }
-};
-
-const generateChallenge = (isTeam) => {
+const generateChallenge = (challengeType) => {
   try {
     console.log(chalk.yellow(`Generating challenge...`));
     const now  = new Date();
     var randomNumber = faker.random.number();
-    const challenge = isTeam ? teamChallenge : challengeInstance;
-    challenge.instanceDetails.name = isTeam ? `Challenge TEAM ${randomNumber}` : `Challenge ${randomNumber}`;
+    const challenge = getChallengeType(challengeType);
+    challenge.instanceDetails.name = `${challenge.instanceDetails.name} ${randomNumber}`;
     challenge.instanceDetails.dates = {
-      "startDate": now,
+      "startDate": dateFns.addDays(now, -2),
       "endDate": dateFns.addDays(now, 10),
-      "openDate": now,
+      "openDate": dateFns.addDays(now, -2),
       "lastJoinableDate": dateFns.addDays(now, 2),
       "repeatDetails": {
         "numRepeat": 0,
@@ -143,7 +43,6 @@ const generateChallenge = (isTeam) => {
         "repeatUnit": "days"
       }
     };
-
 
     console.log(chalk.green(`✅ Generated challenge: ${challenge.instanceDetails.name}`));
     return challenge;
@@ -182,11 +81,11 @@ const saveChallengeId = (challengeId) => {
   }
 };
 
-const createChallenge = async () => {
+const createChallenge = async (challengeType) => {
   try {
     console.log(chalk.yellow(`Creating challenge...`));
     const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/editor/foo`;
-    const challengeBody = generateChallenge();
+    const challengeBody = generateChallenge(challengeType);
     const res = await axios.post(reqUrl, challengeBody, {
       headers: {
         'Content-Type': 'application/json',
@@ -204,4 +103,9 @@ const createChallenge = async () => {
   }
 };
 
+// createChallenge('WATER');
+// createChallenge('FOOD');
+// createChallenge('TEAM');
+// createChallenge('MEDITATION');
+// createChallenge('KINDNESS');
 createChallenge();

@@ -1,7 +1,7 @@
-const TENANT = 'silly-dog';
+const TENANT = require('./tenant');
+const CHALLENGE_ID = require('./challengeId');
+const USER_DATA_FILE = require('./userDataFile');
 const CHALLENGESV2_BASE_URL = `https://challenges-challengesv2.${TENANT}.rally-dev.com`;
-const USER_DATA_FILE = 'users_4.json';
-const CHALLENGE_ID = '6fead7ab-be34-4c6e-bf81-9224e9a69000';
 
 module.exports = {
   TENANT,

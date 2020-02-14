@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "generateUsers": "node usersScripts/generateUsers.js ",
     "createUser": "node usersScripts/createUser.js ",
-    "generateChallenge": "node generateChallenge.js",
-    "joinUsersToChallenge": "node joinUsersToChallenge.js",
-    "postCheckins": "node postCheckins.js"
+    "generateChallenge": "node challengesScripts/generateChallenge.js",
+    "joinUsersToChallenge": "node challengesScripts/joinUsersToChallenge.js",
+    "postCheckins": "node challengesScripts/postCheckins.js"
   },
   "author": "alexitaylor",
   "license": "ISC",
@@ -17,6 +17,8 @@
     "axios": "^0.19.2",
     "chalk": "^3.0.0",
     "date-fns": "^2.9.0",
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "lodash": "^4.17.15",
+    "path": "^0.12.7"
   }
 }

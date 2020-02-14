@@ -1,7 +1,7 @@
 const axios = require('axios');
 const chalk = require('chalk');
-const utils = require('./utils');
-const config = require('./configs/configs');
+const utils = require('../utils');
+const config = require('../configs/configs');
 
 const joinUserToChallenge = async (challengeId, rallyId) => {
 	try {

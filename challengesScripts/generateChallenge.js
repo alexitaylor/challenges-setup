@@ -3,7 +3,9 @@ const chalk = require('chalk');
 const faker = require('faker');
 const dateFns = require('date-fns');
 const fs = require('fs');
-const config = require('./configs/configs');
+const template = require('lodash').template;
+const path = require('path');
+const config = require('../configs/configs');
 
 const challengeInstance = {
   "instanceDetails": {
@@ -121,7 +123,7 @@ const teamChallenge = {
     ],
     "isDualCheckinAllowed": true
   }
-}
+};
 
 const generateChallenge = (isTeam) => {
   try {
@@ -150,15 +152,35 @@ const generateChallenge = (isTeam) => {
   }
 };
 
+const updateChallengeIdConfig = (challengeId) => {
+  try {
+    console.log(chalk.yellow(`Updating challenge ID config...`));
+
+    const templateString = (`module.exports = '<%- challengeId %>';`);
+    const compiled = template(templateString);
+    const newConfigFile = compiled({ challengeId });
+    const configFile = path.resolve(__dirname, '..', 'configs/challengeId.js');
+
+    fs.writeFileSync(configFile, newConfigFile);
+
+    console.log(chalk.green(`✅ Updated challenge ID config!`));
+  } catch (e) {
+    console.log(chalk.red(`❌ Error unable to update challenge ID config. ${e}`));
+  }
+};
+
 const saveChallengeId = (challengeId) => {
   try {
     console.log(chalk.yellow(`Saving challenge ID to file...`));
-    fs.appendFileSync('./challenge_data/challenge_ids.txt', `\r\n${challengeId}`);
+    const challengeIdFile = path.resolve(__dirname, '..', 'challenge_data/challenge_ids.txt');
+
+    fs.appendFileSync(challengeIdFile, `\r\n${challengeId}`);
+    updateChallengeIdConfig(challengeId);
     console.log(chalk.green(`✅ Saved challenge ID to file!`));
   } catch (e) {
-    throw `❌ Error unable to write challenge ID to file. ${e}`;
+    console.log(chalk.red(`❌ Error unable to write challenge ID to file. ${e}`));
   }
-}
+};
 
 const createChallenge = async () => {
   try {

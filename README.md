@@ -21,12 +21,12 @@ A script to create X number of users. In `generateUsers.js` file you can change 
 ### `npm run createUser` or `node usersScripts/createUser.js`
 Creates 1 new user. The user data will be outputted to the console. Remember to update `TENANT` config in the `configs/configs.js` file.
 
-### `npm run generateChallenge` or `node generateChallenge.js`
-A script to generate a challenge. The script will generate a random name for the challenge and automatically set the dates. Any other changes to request body will have to be made in the `generateChallenge.js` file. After the challenge is created, the challengeId will be saved to `challenge_data/challenge_ids.txt` file.
+### `npm run generateChallenge` or `node challengesScripts/generateChallenge.js`
+A script to generate a challenge. The script will generate a random name for the challenge and automatically set the dates. Any other changes to request body will have to be made in the `challengesScripts/generateChallenge.js` file. After the challenge is created, the challengeId will be saved to `challenge_data/challenge_ids.txt` file and the `CHALLENGE_ID` const config will ge updated in the `configs` directory. Updating the `CHALLENGE_ID` after creating a user will allow us to automatically run the other challenges scripts with the new challenge.  
 
-### `npm run joinUsersToChallenge` or `node joinUsersToChallenge.js`
-This will join a group of users to challenge. To run this script, the `generateUsers` script needs to be run first, and the `USER_DATA_FILE` config needs to be updated to point to the file with the recently created users. Also, you will need to update the `CHALLENGE_ID` const in the `configs/configs.js` file. You can grab the challenge ID from `challenge_data/challenge_ids.txt` file or run the `generateChallenge` script again.
+### `npm run joinUsersToChallenge` or `node challengesScripts/joinUsersToChallenge.js`
+This will join a group of users to challenge. To run this script, the `generateUsers` script needs to be run first, and the `USER_DATA_FILE` config needs to be updated to point to the file with the recently created users. Also, you will need to update the `CHALLENGE_ID` const in the `configs/configs.js` file if you want to run a challenge that was not generated with `generateChallenge` script. You can grab an old challenge ID from `challenge_data/challenge_ids.txt` file or run the `generateChallenge` script again.
 
-### `npm run postCheckins` or `node postCheckins.js`
-This script will post a random check-in amount for a group of users. Remember to update the `configs/configs.js` file with the appropriate `CHALLENGE_ID` and set of users, `USER_DATA_FILE`.
+### `npm run postCheckins` or `node challengesScripts/postCheckins.js`
+This script will post a random check-in amount for a group of users. Remember to update the `configs/configs.js` file with the appropriate `CHALLENGE_ID` and set of users config const, `USER_DATA_FILE`.
 

@@ -1,6 +1,8 @@
 const fs = require('fs');
 const axios = require('axios');
 const chalk = require('chalk');
+const path = require('path');
+const template = require('lodash').template;
 const config = require('../configs/configs');
 
 const createUser = async () => {
@@ -22,23 +24,41 @@ const createUser = async () => {
   }
 };
 
+const updateUserDataFileConfig = (fileName) => {
+  try {
+    console.log(chalk.yellow(`Updating USER_DATA_FILE config...`));
+
+    const templateString = (`module.exports = '<%- fileName %>';`);
+    const compiled = template(templateString);
+    const newConfigFile = compiled({ fileName });
+    const configFile = path.resolve(__dirname, '..', 'configs/userDataFile.js');
+
+    fs.writeFileSync(configFile, newConfigFile);
+
+    console.log(chalk.green(`✅ Updated USER_DATA_FILE config!`));
+  } catch (e) {
+    console.log(chalk.red(`❌ Error unable to update USER_DATA_FILE config. ${e}`));
+  }
+};
+
 const saveUsers = (users) => {
   try {
     console.log(chalk.yellow(`Saving users to file...`));
     let fileNumber = 0;
-    fs.readdirSync('./user_data/').forEach(file => {
+    const userDataDir = path.resolve(__dirname, '..', 'user_data/');
+
+    fs.readdirSync(userDataDir).forEach(file => {
       const endIdx = file.indexOf('.json');
       const currentFileNumber = Number.parseInt(file.slice(6, endIdx));
       fileNumber = fileNumber > currentFileNumber ? number : currentFileNumber;
     });
 
     const fileName = `users_${fileNumber + 1}.json`;
-    fs.writeFile(`./user_data/${fileName}`, JSON.stringify(users), function(err) {
-      if (err) {
-        return console.log(`❌ Error unable to write to file. ${err}`);
-      }
-      console.log(chalk.green(`✅ The file was save, ${fileName}`));
-    });
+    fs.writeFileSync(`${userDataDir}/${fileName}`, JSON.stringify(users));
+
+    updateUserDataFileConfig(fileName);
+
+    console.log(chalk.green(`✅ The file was save, ${fileName}`));
   } catch (e) {
     throw `❌ Error unable to save users. ${e}`;
   }

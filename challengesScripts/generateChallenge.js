@@ -6,7 +6,7 @@ const fs = require('fs');
 const template = require('lodash').template;
 const path = require('path');
 const config = require('../configs/configs');
-const { DEFAULT_CHALLENGE, TEAM_CHALLENGE, WATER_WARRIOR, FOOD, MEDITATION, KINDNESS } = require('./challengeData');
+const { DEFAULT_CHALLENGE, TEAM_CHALLENGE, WATER_WARRIOR, FOOD, MEDITATION, KINDNESS, CITY_WALK_DC } = require('./challengeData');
 
 const getChallengeType = (type) => {
   switch(type) {
@@ -20,6 +20,8 @@ const getChallengeType = (type) => {
       return MEDITATION;
     case 'KINDNESS':
       return KINDNESS;
+    case 'CITY_WALK_DC':
+      return CITY_WALK_DC;
     default:
       return DEFAULT_CHALLENGE
   }
@@ -86,12 +88,15 @@ const createChallenge = async (challengeType) => {
     console.log(chalk.yellow(`Creating challenge...`));
     const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/editor/foo`;
     const challengeBody = generateChallenge(challengeType);
+
     const res = await axios.post(reqUrl, challengeBody, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
+        'X-Rally-User-Timezone': 'America/New_York'
       }
     });
+
     const challenge = res.data;
 
     saveChallengeId(challenge.challengeId);
@@ -109,3 +114,4 @@ const createChallenge = async (challengeType) => {
 // createChallenge('MEDITATION');
 // createChallenge('KINDNESS');
 createChallenge();
+// createChallenge('CITY_WALK_DC');

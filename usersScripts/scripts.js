@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const path = require('path');
 const template = require('lodash').template;
 const config = require('../configs/configs');
+const shortId = require('shortid');
 
 const createUser = async () => {
   try {
@@ -44,16 +45,9 @@ const updateUserDataFileConfig = (fileName) => {
 const saveUsers = (users) => {
   try {
     console.log(chalk.yellow(`Saving users to file...`));
-    let fileNumber = 0;
     const userDataDir = path.resolve(__dirname, '..', 'user_data/');
 
-    fs.readdirSync(userDataDir).forEach(file => {
-      const endIdx = file.indexOf('.json');
-      const currentFileNumber = Number.parseInt(file.slice(6, endIdx));
-      fileNumber = fileNumber > currentFileNumber ? number : currentFileNumber;
-    });
-
-    const fileName = `users_${fileNumber + 1}.json`;
+    const fileName = `users_${config.TENANT}_${shortId.generate()}.json`;
     fs.writeFileSync(`${userDataDir}/${fileName}`, JSON.stringify(users));
 
     updateUserDataFileConfig(fileName);

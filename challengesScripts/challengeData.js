@@ -5,10 +5,10 @@ const DEFAULT_CHALLENGE = {
     "description": "running challenge",
     "colorCode": "49FA43",
     "dates": {
-      "startDate": "2020-02-13T02:22:06.609Z",
-      "endDate": "2020-02-29T02:22:06.609Z",
-      "openDate": "2020-02-13T02:22:06.609Z",
-      "lastJoinableDate": "2020-02-14T02:22:06.609Z",
+      "startDate": "2020-02-14T02:22:06.609Z",
+      "endDate": "2020-02-16T02:22:06.609Z",
+      "openDate": "2020-02-14T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-15T02:22:06.609Z",
       "repeatDetails": {
         "numRepeat": 0,
         "repeatGapInterval": 0,
@@ -168,14 +168,7 @@ const WATER_WARRIOR = {
     "allowManualCheckin": true,
     "scoringMethod": "total",
     "activityType": "waterWarrior"
-  },
-  "dailyEntryCap": 50,
-  "scoringMethod": "total",
-  "allowManualCheckin": true,
-  "checkinMethods": [
-    "total"
-  ],
-  "isDualCheckinAllowed": false
+  }
 };
 
 const FOOD = {
@@ -230,14 +223,7 @@ const FOOD = {
     "allowManualCheckin": true,
     "scoringMethod": "total",
     "activityType": "snackSwap"
-  },
-  "dailyEntryCap": 50,
-  "scoringMethod": "total",
-  "allowManualCheckin": true,
-  "checkinMethods": [
-    "total"
-  ],
-  "isDualCheckinAllowed": false
+  }
 };
 
 const MEDITATION = {
@@ -292,14 +278,7 @@ const MEDITATION = {
     "allowManualCheckin": true,
     "scoringMethod": "total",
     "activityType": "getCentered"
-  },
-  "dailyEntryCap": 50,
-  "scoringMethod": "total",
-  "allowManualCheckin": true,
-  "checkinMethods": [
-    "total"
-  ],
-  "isDualCheckinAllowed": false
+  }
 };
 
 const KINDNESS = {
@@ -354,14 +333,67 @@ const KINDNESS = {
     "allowManualCheckin": true,
     "scoringMethod": "total",
     "activityType": "payItForward"
+  }
+};
+
+const CITY_WALK_DC = {
+  "instanceDetails": {
+    "name": "DC DASH",
+    "status": "active",
+    "description": "Conquer the Hill in a virtual race across Washington, D.C.! Track your steps wherever you are to compete on our digital racecourse. Hit the milestone and win bragging rights in this fun, friendly competition.",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-14T02:22:06.609Z",
+      "endDate": "2020-02-16T02:22:06.609Z",
+      "openDate": "2020-02-14T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-15T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": false,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": true,
+    "isIncentivized": false,
+    "cityId": "dcdash"
   },
-  "dailyEntryCap": 50,
-  "scoringMethod": "total",
-  "allowManualCheckin": true,
-  "checkinMethods": [
-    "total"
-  ],
-  "isDualCheckinAllowed": false
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "activityInfo": {
+      "activityLabel": "Running & Walking",
+      "activityType": "runningWalking",
+      "unit": "miles"
+    },
+    "dailyEntryCap": 50,
+    "scoringMethod": "total",
+    "allowManualCheckin": true,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true
+  }
 };
 
 module.exports = {
@@ -371,4 +403,5 @@ module.exports = {
   FOOD,
   MEDITATION,
   KINDNESS,
+  CITY_WALK_DC,
 };

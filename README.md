@@ -32,3 +32,6 @@ This script will post a random check-in amount for a group of users. Remember to
 
 ### `npm run deleteChallenges` or `node challengesScripts/deleteChallenges.js`
 This will delete a list of challenges. You will have to provide a list of challenge IDs in `challengesScripts/deleteChallenges.js`.
+
+### `npm run generateNewTeams`
+This will create X number of teams and join the teams to a challenge. In order to run this script you must first run the `generateChallenge` script with TEAM type challenge. This will save the challenge ID to the configs which is used in this script.

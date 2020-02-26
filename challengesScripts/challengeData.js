@@ -396,6 +396,125 @@ const CITY_WALK_DC = {
   }
 };
 
+const CITY_WALK_SF = {
+  "instanceDetails": {
+    "name": "SF Stomp",
+    "status": "active",
+    "description": "Wherever you live, take a virtual trip to scenic San Francisco. The City by the Bay! Track your real-world steps to see how your activity stacks up on our digital racecourse. Hit the milestone and win bragging rights in this fun, friendly competition!",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-14T02:22:06.609Z",
+      "endDate": "2020-02-16T02:22:06.609Z",
+      "openDate": "2020-02-14T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-15T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": false,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": true,
+    "isIncentivized": false,
+    "cityId": "sfstomp"
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "activityInfo": {
+      "activityLabel": "Running & Walking",
+      "activityType": "runningWalking",
+      "unit": "miles"
+    },
+    "dailyEntryCap": 50,
+    "scoringMethod": "total",
+    "allowManualCheckin": true,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true
+  }
+};
+
+const PRIVATE_CHALLENGE = {
+  "instanceDetails": {
+    "name": "My Challenge",
+    "status": "active",
+    "description": "Amet aliquam id diam maecenas ultriciese eget mauris pharetra. Bibendum neque egestas congue quisque egestas diam in arcu. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Semper quis lectus nulla at volutpat diam. Scelerisque viverra mauris",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-14T02:22:06.609Z",
+      "endDate": "2020-02-16T02:22:06.609Z",
+      "openDate": "2020-02-14T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-15T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "rally_health",
+      "primaryPartner": "rally",
+      "primaryAffiliation": ""
+    },
+    "isTeam": false,
+    "isInviteOnly": true,
+    "isUserCreated": false,
+    "isCityWalk": false,
+    "isIncentivized": false
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "activityInfo": {
+      "activityLabel": "Running & Walking",
+      "activityType": "runningWalking",
+      "unit": "miles"
+    },
+    "dailyEntryCap": 50,
+    "scoringMethod": "total",
+    "allowManualCheckin": true,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true
+  }
+};
+
 module.exports = {
   DEFAULT_CHALLENGE,
   TEAM_CHALLENGE,
@@ -404,4 +523,6 @@ module.exports = {
   MEDITATION,
   KINDNESS,
   CITY_WALK_DC,
+  CITY_WALK_SF,
+  PRIVATE_CHALLENGE,
 };

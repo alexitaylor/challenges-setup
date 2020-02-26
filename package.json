@@ -10,7 +10,8 @@
     "generateChallenge": "node challengesScripts/generateChallenge.js",
     "joinUsersToChallenge": "node challengesScripts/joinUsersToChallenge.js",
     "postCheckins": "node challengesScripts/postCheckins.js",
-    "deleteChallenges": "node challengesScripts/deleteChallenges.js"
+    "deleteChallenges": "node challengesScripts/deleteChallenges.js",
+    "generateNewTeams": "node challengesScripts/generateNewTeams.js"
   },
   "author": "alexitaylor",
   "license": "ISC",

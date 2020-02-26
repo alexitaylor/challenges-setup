@@ -6,7 +6,17 @@ const fs = require('fs');
 const template = require('lodash').template;
 const path = require('path');
 const config = require('../configs/configs');
-const { DEFAULT_CHALLENGE, TEAM_CHALLENGE, WATER_WARRIOR, FOOD, MEDITATION, KINDNESS, CITY_WALK_DC } = require('./challengeData');
+const {
+  DEFAULT_CHALLENGE,
+  TEAM_CHALLENGE,
+  WATER_WARRIOR,
+  FOOD,
+  MEDITATION,
+  KINDNESS,
+  CITY_WALK_DC,
+  CITY_WALK_SF,
+  PRIVATE_CHALLENGE
+} = require('./challengeData');
 
 const getChallengeType = (type) => {
   switch(type) {
@@ -22,6 +32,10 @@ const getChallengeType = (type) => {
       return KINDNESS;
     case 'CITY_WALK_DC':
       return CITY_WALK_DC;
+    case 'CITY_WALK_SF':
+      return CITY_WALK_SF;
+    case 'PRIVATE_CHALLENGE':
+      return PRIVATE_CHALLENGE;
     default:
       return DEFAULT_CHALLENGE
   }
@@ -31,7 +45,7 @@ const generateChallenge = (challengeType) => {
   try {
     console.log(chalk.yellow(`Generating challenge...`));
     const now  = new Date();
-    var randomNumber = faker.random.number();
+    const randomNumber = faker.random.number();
     const challenge = getChallengeType(challengeType);
     challenge.instanceDetails.name = `${challenge.instanceDetails.name} ${randomNumber}`;
     challenge.instanceDetails.dates = {
@@ -75,7 +89,7 @@ const saveChallengeId = (challengeId) => {
     console.log(chalk.yellow(`Saving challenge ID to file...`));
     const challengeIdFile = path.resolve(__dirname, '..', 'challenge_data/challenge_ids.txt');
 
-    fs.appendFileSync(challengeIdFile, `\r\n${challengeId}`);
+    fs.appendFileSync(challengeIdFile, `\r\n${challengeId}, ${config.TENANT}`);
     updateChallengeIdConfig(challengeId);
     console.log(chalk.green(`✅ Saved challenge ID to file!`));
   } catch (e) {
@@ -110,8 +124,11 @@ const createChallenge = async (challengeType) => {
 
 // createChallenge('WATER');
 // createChallenge('FOOD');
-// createChallenge('TEAM');
+createChallenge('TEAM');
 // createChallenge('MEDITATION');
 // createChallenge('KINDNESS');
-createChallenge();
+// createChallenge();
 // createChallenge('CITY_WALK_DC');
+// createChallenge('CITY_WALK_SF');
+// PRIVATE_CHALLENGE: In order to see this on Web make sure your user matches the primaryClient and primaryPartner. In this case we set it to primaryPartner=rally and primaryClient=rally_health
+// createChallenge('PRIVATE_CHALLENGE');

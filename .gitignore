@@ -2,3 +2,5 @@
 /node_modules
 .idea/
 user_data/*
+team_data/*
+challenge_data/*

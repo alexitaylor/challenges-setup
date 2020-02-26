@@ -1,7 +1,7 @@
 const axios = require('axios');
 const chalk = require('chalk');
 const faker = require('faker');
-const dateFns = require('date-fns');
+const addDays = require('date-fns/addDays');
 const fs = require('fs');
 const template = require('lodash').template;
 const path = require('path');
@@ -49,10 +49,10 @@ const generateChallenge = (challengeType) => {
     const challenge = getChallengeType(challengeType);
     challenge.instanceDetails.name = `${challenge.instanceDetails.name} ${randomNumber}`;
     challenge.instanceDetails.dates = {
-      "startDate": dateFns.addDays(now, -2),
-      "endDate": dateFns.addDays(now, 10),
-      "openDate": dateFns.addDays(now, -2),
-      "lastJoinableDate": dateFns.addDays(now, 2),
+      "startDate": addDays(now, -2),
+      "endDate": addDays(now, 10),
+      "openDate": addDays(now, -2),
+      "lastJoinableDate": addDays(now, 2),
       "repeatDetails": {
         "numRepeat": 0,
         "repeatGapInterval": 0,

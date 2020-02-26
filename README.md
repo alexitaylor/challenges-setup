@@ -35,3 +35,7 @@ This will delete a list of challenges. You will have to provide a list of challe
 
 ### `npm run generateNewTeams`
 This will create X number of teams and join the teams to a challenge. In order to run this script you must first run the `generateChallenge` script with TEAM type challenge. This will save the challenge ID to the configs which is used in this script.
+
+### `npm run joinUsersToTeam`
+This will join a users to team. The script should divvy up the group users to teams (e.g., if you have 40 users and 4 teams then the script will join 10 users per team). 
+**Prerequisites**: 1. Generate users with `generateUsers`, 2. Generate a `TEAM` challenge with `generateChallenge`, 3. Generate X number of teams with `generateNewTeams`, 4. Finally join users to teams with this script.   

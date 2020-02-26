@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const path = require('path');
 const template = require('lodash').template;
 const config = require('../configs/configs');
-const shortId = require('shortid');
+const format = require('date-fns/format');
 
 const createUser = async () => {
   try {
@@ -47,7 +47,7 @@ const saveUsers = (users) => {
     console.log(chalk.yellow(`Saving users to file...`));
     const userDataDir = path.resolve(__dirname, '..', 'user_data/');
 
-    const fileName = `users_${config.TENANT}_${shortId.generate()}.json`;
+    const fileName = `users_${config.TENANT}_${format(new Date(), 'yyyy-MM-dd_HH:mm:ss.SSS')}.json`;
     fs.writeFileSync(`${userDataDir}/${fileName}`, JSON.stringify(users));
 
     updateUserDataFileConfig(fileName);

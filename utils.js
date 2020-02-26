@@ -12,7 +12,14 @@ function readUserData() {
 	return JSON.parse(usersJson);
 }
 
+function readTeamData() {
+	const teamDataFile = config.TEAM_DATA_FILE;
+	const teamsJson = fs.readFileSync(`./team_data/${teamDataFile}`, 'utf8');
+	return JSON.parse(teamsJson);
+}
+
 module.exports = {
 	getRandomNumber,
 	readUserData,
+	readTeamData,
 };

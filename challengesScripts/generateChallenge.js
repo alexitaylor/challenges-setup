@@ -15,6 +15,9 @@ const {
   KINDNESS,
   CITY_WALK_DC,
   CITY_WALK_SF,
+  CHALLENGE_CITY_WALK_SF_STEPS,
+  CHALLENGE_CITY_WALK_DC_STEPS,
+  CITY_WALK_CHI,
   PRIVATE_CHALLENGE
 } = require('./challengeData');
 
@@ -32,8 +35,14 @@ const getChallengeType = (type) => {
       return KINDNESS;
     case 'CITY_WALK_DC':
       return CITY_WALK_DC;
+    case 'CHALLENGE_CITY_WALK_DC_STEPS':
+      return CHALLENGE_CITY_WALK_DC_STEPS;
     case 'CITY_WALK_SF':
       return CITY_WALK_SF;
+    case 'CHALLENGE_CITY_WALK_SF_STEPS':
+      return CHALLENGE_CITY_WALK_SF_STEPS;
+    case 'CITY_WALK_CHI':
+      return CITY_WALK_CHI;
     case 'PRIVATE_CHALLENGE':
       return PRIVATE_CHALLENGE;
     default:
@@ -129,6 +138,9 @@ createChallenge('TEAM');
 // createChallenge('KINDNESS');
 // createChallenge();
 // createChallenge('CITY_WALK_DC');
+// createChallenge('CITY_WALK_CHI');
+// createChallenge('CHALLENGE_CITY_WALK_SF_STEPS');
+// createChallenge('CHALLENGE_CITY_WALK_DC_STEPS');
 // createChallenge('CITY_WALK_SF');
 // PRIVATE_CHALLENGE: In order to see this on Web make sure your user matches the primaryClient and primaryPartner. In this case we set it to primaryPartner=rally and primaryClient=rally_health
 // createChallenge('PRIVATE_CHALLENGE');

@@ -456,6 +456,66 @@ const CITY_WALK_SF = {
   }
 };
 
+const CITY_WALK_CHI = {
+  "instanceDetails": {
+    "name": "Chi Town Shuffle",
+    "status": "active",
+    "description": "From the lake to the Loop, take a virtual hike across Chicago! Track your steps as you go about your day to see how your activity stacks up on our digital racecourse. Get ready to walk your way through the windy city. ",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-14T02:22:06.609Z",
+      "endDate": "2020-02-16T02:22:06.609Z",
+      "openDate": "2020-02-14T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-15T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": false,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": true,
+    "isIncentivized": false,
+    "cityId": "chitownshuffle"
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "activityInfo": {
+      "activityLabel": "Running & Walking",
+      "activityType": "runningWalking",
+      "unit": "miles"
+    },
+    "dailyEntryCap": 50,
+    "scoringMethod": "total",
+    "allowManualCheckin": true,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true
+  }
+};
+
 const PRIVATE_CHALLENGE = {
   "instanceDetails": {
     "name": "My Challenge",
@@ -515,6 +575,118 @@ const PRIVATE_CHALLENGE = {
   }
 };
 
+const CHALLENGE_CITY_WALK_SF_STEPS = {
+  "instanceDetails": {
+    "name": "SF Stomp STEPS",
+    "status": "active",
+    "description": "Wherever you live, take a virtual trip to scenic San Francisco. The City by the Bay! Track your real-world steps to see how your activity stacks up on our digital racecourse. Hit the milestone and win bragging rights in this fun, friendly competition!",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-14T02:22:06.609Z",
+      "endDate": "2020-02-16T02:22:06.609Z",
+      "openDate": "2020-02-14T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-15T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": false,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": true,
+    "isIncentivized": false,
+    "cityId": "sfstomp"
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 40000,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 10000,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 20000,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "dailyEntryCap": 50000,
+    "scoringMethod": "total",
+    "allowManualCheckin": true,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true,
+    "activityType": "runningWalkingSteps"
+  }
+};
+
+const CHALLENGE_CITY_WALK_DC_STEPS = {
+  "instanceDetails": {
+    "name": "DC DASH STEP",
+    "status": "active",
+    "description": "Conquer the Hill in a virtual race across Washington, D.C.! Track your steps wherever you are to compete on our digital racecourse. Hit the milestone and win bragging rights in this fun, friendly competition.",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-14T02:22:06.609Z",
+      "endDate": "2020-02-16T02:22:06.609Z",
+      "openDate": "2020-02-14T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-15T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": false,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": true,
+    "isIncentivized": false,
+    "cityId": "dcdash"
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20000,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5000,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10000,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "dailyEntryCap": 50000,
+    "scoringMethod": "total",
+    "allowManualCheckin": true,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true,
+    "activityType": "runningWalkingSteps"
+  }
+};
+
 module.exports = {
   DEFAULT_CHALLENGE,
   TEAM_CHALLENGE,
@@ -524,5 +696,8 @@ module.exports = {
   KINDNESS,
   CITY_WALK_DC,
   CITY_WALK_SF,
+  CHALLENGE_CITY_WALK_SF_STEPS,
+  CHALLENGE_CITY_WALK_DC_STEPS,
+  CITY_WALK_CHI,
   PRIVATE_CHALLENGE,
 };

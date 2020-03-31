@@ -2,6 +2,7 @@ const axios = require('axios');
 const chalk = require('chalk');
 const faker = require('faker');
 const addDays = require('date-fns/addDays');
+const addMinutes = require('date-fns/addMinutes');
 const fs = require('fs');
 const template = require('lodash').template;
 const path = require('path');
@@ -15,6 +16,9 @@ const {
   KINDNESS,
   CITY_WALK_DC,
   CITY_WALK_SF,
+  CHALLENGE_CITY_WALK_SF_STEPS,
+  CHALLENGE_CITY_WALK_DC_STEPS,
+  CITY_WALK_CHI,
   PRIVATE_CHALLENGE
 } = require('./challengeData');
 
@@ -32,8 +36,14 @@ const getChallengeType = (type) => {
       return KINDNESS;
     case 'CITY_WALK_DC':
       return CITY_WALK_DC;
+    case 'CHALLENGE_CITY_WALK_DC_STEPS':
+      return CHALLENGE_CITY_WALK_DC_STEPS;
     case 'CITY_WALK_SF':
       return CITY_WALK_SF;
+    case 'CHALLENGE_CITY_WALK_SF_STEPS':
+      return CHALLENGE_CITY_WALK_SF_STEPS;
+    case 'CITY_WALK_CHI':
+      return CITY_WALK_CHI;
     case 'PRIVATE_CHALLENGE':
       return PRIVATE_CHALLENGE;
     default:
@@ -48,8 +58,9 @@ const generateChallenge = (challengeType) => {
     const randomNumber = faker.random.number();
     const challenge = getChallengeType(challengeType);
     challenge.instanceDetails.name = `${challenge.instanceDetails.name} ${randomNumber}`;
+    console.log(addDays(now, 1));
     challenge.instanceDetails.dates = {
-      "startDate": addDays(now, -2),
+      "startDate": addMinutes(now, 5),
       "endDate": addDays(now, 10),
       "openDate": addDays(now, -2),
       "lastJoinableDate": addDays(now, 2),
@@ -124,11 +135,19 @@ const createChallenge = async (challengeType) => {
 
 // createChallenge('WATER');
 // createChallenge('FOOD');
-createChallenge('TEAM');
+// createChallenge('TEAM');
 // createChallenge('MEDITATION');
 // createChallenge('KINDNESS');
 // createChallenge();
 // createChallenge('CITY_WALK_DC');
+// createChallenge('CITY_WALK_CHI');
+// createChallenge('CHALLENGE_CITY_WALK_SF_STEPS');
+// createChallenge('CHALLENGE_CITY_WALK_DC_STEPS');
 // createChallenge('CITY_WALK_SF');
 // PRIVATE_CHALLENGE: In order to see this on Web make sure your user matches the primaryClient and primaryPartner. In this case we set it to primaryPartner=rally and primaryClient=rally_health
 // createChallenge('PRIVATE_CHALLENGE');
+
+module.exports = {
+  createChallenge,
+};
+

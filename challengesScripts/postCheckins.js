@@ -4,11 +4,12 @@ const fs = require('fs');
 const utils = require('../utils');
 const config = require('../configs/configs');
 
-const postCheckins = async(challengeId, rallyId) => {
+const postCheckins = async(challengeId, rallyId, checkinAmountMax) => {
 	try {
 		console.log(chalk.yellow(`Posting checkin...`));
 		const reqUrl = `${config.CHALLENGESV2_BASE_URL}/internal/challengesv2/v1/instances/${challengeId}/editor/${rallyId}/members/checkins`;
-		const manualCheckinAmount = utils.getRandomNumber(20);
+		checkinAmountMax = !!checkinAmountMax ? checkinAmountMax : 20;
+		const manualCheckinAmount = utils.getRandomNumber(checkinAmountMax);
 		const body = {
 			isManual: true,
 			manualCheckinAmount,
@@ -28,13 +29,13 @@ const postCheckins = async(challengeId, rallyId) => {
 };
 
 // Script to post checkins for a group of users
-const generatePostCheckins = async (challengeId) => {
+const generatePostCheckins = async (challengeId, checkinAmountMax) => {
 	try {
 		console.log(chalk.yellow(`Starting checkins for users...`));
 		const users = utils.readUserData();
 
 		for (var i = 0; i < users.length; i++) {
-			await postCheckins(challengeId, users[i].rallyId);
+			await postCheckins(challengeId, users[i].rallyId, checkinAmountMax);
 		}
 
 		console.log(chalk.green(`✅ Successfully posted checkins for group of users.`));
@@ -43,4 +44,7 @@ const generatePostCheckins = async (challengeId) => {
 	}
 };
 
-generatePostCheckins(config.CHALLENGE_ID);
+// generatePostCheckins(config.CHALLENGE_ID);
+module.exports = {
+	generatePostCheckins,
+};

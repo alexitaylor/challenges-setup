@@ -64,4 +64,7 @@ const deleteChallenges = async (challengeIds) => {
 const challengeIds = [
 ];
 
-deleteChallenges(challengeIds);
+// deleteChallenges(challengeIds);
+module.exports = {
+  deleteChallenges,
+};

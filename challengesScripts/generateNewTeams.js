@@ -23,7 +23,7 @@ const upsertNewTeam = async () => {
 
     const body = {
       challengeId: config.CHALLENGE_ID,
-      teamName: `TEAM ${randomNumber}`,
+      teamName: `TEAM TEST ${randomNumber}`,
       description,
       normalColor: normalColors[normalColorsIdx],
       brightColor: 'string',
@@ -99,6 +99,9 @@ const generateNewTeams = async (numberOfTeams) => {
   }
 };
 
-generateNewTeams(4);
+// generateNewTeams(6);
 
+module.exports = {
+  generateNewTeams,
+};
 

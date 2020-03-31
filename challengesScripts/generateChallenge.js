@@ -2,6 +2,7 @@ const axios = require('axios');
 const chalk = require('chalk');
 const faker = require('faker');
 const addDays = require('date-fns/addDays');
+const addMinutes = require('date-fns/addMinutes');
 const fs = require('fs');
 const template = require('lodash').template;
 const path = require('path');
@@ -57,8 +58,9 @@ const generateChallenge = (challengeType) => {
     const randomNumber = faker.random.number();
     const challenge = getChallengeType(challengeType);
     challenge.instanceDetails.name = `${challenge.instanceDetails.name} ${randomNumber}`;
+    console.log(addDays(now, 1));
     challenge.instanceDetails.dates = {
-      "startDate": addDays(now, -2),
+      "startDate": addMinutes(now, 5),
       "endDate": addDays(now, 10),
       "openDate": addDays(now, -2),
       "lastJoinableDate": addDays(now, 2),
@@ -133,7 +135,7 @@ const createChallenge = async (challengeType) => {
 
 // createChallenge('WATER');
 // createChallenge('FOOD');
-createChallenge('TEAM');
+// createChallenge('TEAM');
 // createChallenge('MEDITATION');
 // createChallenge('KINDNESS');
 // createChallenge();
@@ -144,3 +146,8 @@ createChallenge('TEAM');
 // createChallenge('CITY_WALK_SF');
 // PRIVATE_CHALLENGE: In order to see this on Web make sure your user matches the primaryClient and primaryPartner. In this case we set it to primaryPartner=rally and primaryClient=rally_health
 // createChallenge('PRIVATE_CHALLENGE');
+
+module.exports = {
+  createChallenge,
+};
+

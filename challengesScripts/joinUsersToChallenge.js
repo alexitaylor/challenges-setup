@@ -38,4 +38,8 @@ const joinUsersToChallenge = async (challengeId) => {
 };
 
 // Pass in challenge ID
-joinUsersToChallenge(config.CHALLENGE_ID);
+// joinUsersToChallenge(config.CHALLENGE_ID);
+
+module.exports = {
+	joinUsersToChallenge,
+};

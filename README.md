@@ -13,6 +13,20 @@ $ git remote add upstream git@github.com:AudaxHealthInc/challengesV2-data-setup.
 $ npm i
 ```
 
+## CLI
+
+- Install the CLI module globally so you can run the shell command anywhere.
+
+```bash
+$ npm install -g
+```
+
+- Run the CLI
+
+```bash
+$ cds
+```
+
 ## Scripts
 
 ### `npm run generateUsers` or `node usersScripts/generateUsers.js `

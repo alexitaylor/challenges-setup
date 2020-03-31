@@ -54,4 +54,7 @@ const joinUsersToTeam = async () => {
 };
 
 
-joinUsersToTeam();
+// joinUsersToTeam();
+module.exports = {
+  joinUsersToTeam,
+};

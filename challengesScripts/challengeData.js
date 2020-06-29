@@ -167,7 +167,7 @@ const WATER_WARRIOR = {
     "isDualCheckinAllowed": true,
     "allowManualCheckin": true,
     "scoringMethod": "total",
-    "activityType": "waterWarrior"
+    "activityType": "hydration"
   }
 };
 
@@ -222,7 +222,7 @@ const FOOD = {
     "isDualCheckinAllowed": true,
     "allowManualCheckin": true,
     "scoringMethod": "total",
-    "activityType": "snackSwap"
+    "activityType": "healthySnacking"
   }
 };
 
@@ -277,7 +277,7 @@ const MEDITATION = {
     "isDualCheckinAllowed": true,
     "allowManualCheckin": true,
     "scoringMethod": "total",
-    "activityType": "getCentered"
+    "activityType": "meditation"
   }
 };
 
@@ -332,7 +332,7 @@ const KINDNESS = {
     "isDualCheckinAllowed": true,
     "allowManualCheckin": true,
     "scoringMethod": "total",
-    "activityType": "payItForward"
+    "activityType": "actsOfKindness"
   }
 };
 

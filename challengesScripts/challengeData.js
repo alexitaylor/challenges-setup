@@ -687,6 +687,226 @@ const CHALLENGE_CITY_WALK_DC_STEPS = {
   }
 };
 
+const ELLIPTICAL = {
+  "instanceDetails": {
+    "name": "TEAM ELLIPTICAL",
+    "status": "active",
+    "description": "Elevate your fitness on the elliptical! Get moving on the machine and track your progress. Challenge yourself to get your heart pumping!",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-13T02:22:06.609Z",
+      "endDate": "2020-02-29T02:22:06.609Z",
+      "openDate": "2020-02-13T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-14T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": true,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": false,
+    "isIncentivized": false
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "dailyEntryCap": 180,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true,
+    "allowManualCheckin": true,
+    "scoringMethod": "total",
+    "activityType": "elliptical"
+  }
+};
+
+const CYCLING = {
+  "instanceDetails": {
+    "name": "TEAM CYCLING",
+    "status": "active",
+    "description": "Cycle your way to a healthier you! Challenge yourself with a daily ride. Choose a stationary bike or the wild outdoors. It doesn’t matter as long as you get moving!",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-13T02:22:06.609Z",
+      "endDate": "2020-02-29T02:22:06.609Z",
+      "openDate": "2020-02-13T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-14T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": true,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": false,
+    "isIncentivized": false
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "dailyEntryCap": 180,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true,
+    "allowManualCheckin": true,
+    "scoringMethod": "total",
+    "activityType": "cycling"
+  }
+};
+
+const YOGA = {
+  "instanceDetails": {
+    "name": "TEAM YOGA",
+    "status": "active",
+    "description": "Stretch your mind and body with a daily dose of yoga. It doesn’t matter if you're a beginner or a master yogi. Challenge yourself this week. ",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-13T02:22:06.609Z",
+      "endDate": "2020-02-29T02:22:06.609Z",
+      "openDate": "2020-02-13T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-14T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": true,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": false,
+    "isIncentivized": false
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "dailyEntryCap": 180,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true,
+    "allowManualCheckin": true,
+    "scoringMethod": "total",
+    "activityType": "yoga"
+  }
+};
+
+const SWIMMING = {
+  "instanceDetails": {
+    "name": "TEAM SWIMMING",
+    "status": "active",
+    "description": "Freestyle, butterfly, or doggy paddle. Whatever stroke you prefer, just keep swimming! Hit your goals and you’ll be feeling like a winner by the week's end",
+    "colorCode": "49FA43",
+    "dates": {
+      "startDate": "2020-02-13T02:22:06.609Z",
+      "endDate": "2020-02-29T02:22:06.609Z",
+      "openDate": "2020-02-13T02:22:06.609Z",
+      "lastJoinableDate": "2020-02-14T02:22:06.609Z",
+      "repeatDetails": {
+        "numRepeat": 0,
+        "repeatGapInterval": 0,
+        "repeatUnit": "days"
+      }
+    },
+    "sponsorship": {
+      "primaryClient": "",
+      "primaryPartner": "",
+      "primaryAffiliation": ""
+    },
+    "isTeam": true,
+    "isInviteOnly": false,
+    "isUserCreated": false,
+    "isCityWalk": false,
+    "isIncentivized": false
+  },
+  "milestoneDetails": {
+    "milestoneAmount": {
+      "interval": 20,
+      "coinValue": 50
+    },
+    "minorCheckpoints": {
+      "interval": 5,
+      "coinValue": 5
+    },
+    "majorCheckpoints": {
+      "interval": 10,
+      "coinValue": 10
+    }
+  },
+  "checkinDetails": {
+    "dailyEntryCap": 180,
+    "checkinMethods": [
+      "manual",
+      "rally"
+    ],
+    "isDualCheckinAllowed": true,
+    "allowManualCheckin": true,
+    "scoringMethod": "total",
+    "activityType": "swimming"
+  }
+};
+
 module.exports = {
   DEFAULT_CHALLENGE,
   TEAM_CHALLENGE,
@@ -700,4 +920,8 @@ module.exports = {
   CHALLENGE_CITY_WALK_DC_STEPS,
   CITY_WALK_CHI,
   PRIVATE_CHALLENGE,
+  ELLIPTICAL,
+  CYCLING,
+  YOGA,
+  SWIMMING
 };

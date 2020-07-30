@@ -19,7 +19,11 @@ const {
   CHALLENGE_CITY_WALK_SF_STEPS,
   CHALLENGE_CITY_WALK_DC_STEPS,
   CITY_WALK_CHI,
-  PRIVATE_CHALLENGE
+  PRIVATE_CHALLENGE,
+  ELLIPTICAL,
+  CYCLING,
+  SWIMMING,
+  YOGA
 } = require('./challengeData');
 
 const getChallengeType = (type) => {
@@ -46,6 +50,14 @@ const getChallengeType = (type) => {
       return CITY_WALK_CHI;
     case 'PRIVATE_CHALLENGE':
       return PRIVATE_CHALLENGE;
+    case 'ELLIPTICAL':
+      return ELLIPTICAL;
+    case 'CYCLING':
+      return CYCLING;
+    case 'SWIMMING':
+      return SWIMMING;
+    case 'YOGA':
+      return YOGA;
     default:
       return DEFAULT_CHALLENGE
   }

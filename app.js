@@ -46,8 +46,37 @@ const start = async () => {
 			figlet.textSync('Challenges v2 Data Setup', { horizontalLayout: 'full' })
 		)
 	);
-	const commandChoices = ['Generate Users', 'Create User', 'Generate Challenge', 'Join Users to a Challenge', 'Post Checkins', 'Generate New Teams', 'Join Users to Team', 'Delete Challenges'];
-	const challengeTypeChoices = ['DEFAULT', 'CITY_WALK_SF', 'PRIVATE_CHALLENGE', 'WATER', 'FOOD', 'TEAM', 'MEDITATION', 'KINDNESS', 'CITY_WALK_DC', 'CITY_WALK_CHI', 'CHALLENGE_CITY_WALK_SF_STEPS', 'CHALLENGE_CITY_WALK_DC_STEPS'];
+	const commandChoices = [
+		'Generate Users',
+		'Create User',
+		'Generate Challenge',
+		'Join Users to a Challenge',
+		'Post Checkins',
+		'Generate New Teams',
+		'Join Users to Team',
+		'Delete Challenges'];
+
+
+	const challengeTypeChoices = [
+		'DEFAULT',
+		'CITY_WALK_SF',
+		'PRIVATE_CHALLENGE',
+		'WATER',
+		'FOOD',
+		'TEAM',
+		'MEDITATION',
+		'KINDNESS',
+		'CITY_WALK_DC',
+		'CITY_WALK_CHI',
+		'CHALLENGE_CITY_WALK_SF_STEPS',
+		'CHALLENGE_CITY_WALK_DC_STEPS',
+		'CYCLING',
+		'ELLIPTICAL',
+		'SWIMMING',
+		'YOGA'
+	];
+
+
 	await inquirer
 		.prompt([
 			{

@@ -431,11 +431,11 @@ const CITY_WALK_SF = {
       "coinValue": 50
     },
     "minorCheckpoints": {
-      "interval": 5,
+      "interval": 2.5,
       "coinValue": 5
     },
     "majorCheckpoints": {
-      "interval": 10,
+      "interval": 5,
       "coinValue": 10
     }
   },
@@ -491,7 +491,7 @@ const CITY_WALK_CHI = {
       "coinValue": 50
     },
     "minorCheckpoints": {
-      "interval": 5,
+      "interval": 2.5,
       "coinValue": 5
     },
     "majorCheckpoints": {
@@ -510,23 +510,22 @@ const CITY_WALK_CHI = {
     "allowManualCheckin": true,
     "checkinMethods": [
       "manual",
-      "rally"
     ],
-    "isDualCheckinAllowed": true
+    "isDualCheckinAllowed": false
   }
 };
 
 const PRIVATE_CHALLENGE = {
   "instanceDetails": {
-    "name": "My Challenge",
+    "name": "Private My Challenge",
     "status": "active",
     "description": "Amet aliquam id diam maecenas ultriciese eget mauris pharetra. Bibendum neque egestas congue quisque egestas diam in arcu. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Semper quis lectus nulla at volutpat diam. Scelerisque viverra mauris",
     "colorCode": "49FA43",
     "dates": {
-      "startDate": "2020-02-14T02:22:06.609Z",
-      "endDate": "2020-02-16T02:22:06.609Z",
-      "openDate": "2020-02-14T02:22:06.609Z",
-      "lastJoinableDate": "2020-02-15T02:22:06.609Z",
+      "startDate": "2020-04-10T02:22:06.609Z",
+      "endDate": "2020-04-10T02:22:06.609Z",
+      "openDate": "2020-04-10T02:22:06.609Z",
+      "lastJoinableDate": "2020-04-10T02:22:06.609Z",
       "repeatDetails": {
         "numRepeat": 0,
         "repeatGapInterval": 0,
@@ -534,8 +533,8 @@ const PRIVATE_CHALLENGE = {
       }
     },
     "sponsorship": {
-      "primaryClient": "rally_health",
-      "primaryPartner": "rally",
+      "primaryClient": "optum_default",
+      "primaryPartner": "optum",
       "primaryAffiliation": ""
     },
     "isTeam": false,
@@ -610,7 +609,7 @@ const CHALLENGE_CITY_WALK_SF_STEPS = {
       "coinValue": 50
     },
     "minorCheckpoints": {
-      "interval": 10000,
+      "interval": 5000,
       "coinValue": 5
     },
     "majorCheckpoints": {
@@ -619,7 +618,7 @@ const CHALLENGE_CITY_WALK_SF_STEPS = {
     }
   },
   "checkinDetails": {
-    "dailyEntryCap": 50000,
+    "dailyEntryCap": 20000000,
     "scoringMethod": "total",
     "allowManualCheckin": true,
     "checkinMethods": [
@@ -666,16 +665,16 @@ const CHALLENGE_CITY_WALK_DC_STEPS = {
       "coinValue": 50
     },
     "minorCheckpoints": {
-      "interval": 5000,
+      "interval": 10000,
       "coinValue": 5
     },
     "majorCheckpoints": {
-      "interval": 10000,
+      "interval": 50000,
       "coinValue": 10
     }
   },
   "checkinDetails": {
-    "dailyEntryCap": 50000,
+    "dailyEntryCap": 500000,
     "scoringMethod": "total",
     "allowManualCheckin": true,
     "checkinMethods": [

@@ -70,12 +70,11 @@ const generateChallenge = (challengeType) => {
     const randomNumber = faker.random.number();
     const challenge = getChallengeType(challengeType);
     challenge.instanceDetails.name = `${challenge.instanceDetails.name} ${randomNumber}`;
-    console.log(addDays(now, 1));
     challenge.instanceDetails.dates = {
-      "startDate": addMinutes(now, 5),
-      "endDate": addDays(now, 10),
-      "openDate": addDays(now, -2),
-      "lastJoinableDate": addDays(now, 2),
+      "startDate": addDays(now, -1),
+      "endDate": addDays(now, 3),
+      "openDate": addDays(now, -1),
+      "lastJoinableDate": addDays(now, 1),
       "repeatDetails": {
         "numRepeat": 0,
         "repeatGapInterval": 0,
@@ -84,6 +83,7 @@ const generateChallenge = (challengeType) => {
     };
 
     console.log(chalk.green(`✅ Generated challenge: ${challenge.instanceDetails.name}`));
+    console.log('JSON.stringify(challenge): ', JSON.stringify(challenge));
     return challenge;
   } catch (e) {
     throw `❌ Error unable to generate challenge. ${e}`;
@@ -149,7 +149,7 @@ const createChallenge = async (challengeType) => {
 // createChallenge('FOOD');
 // createChallenge('TEAM');
 // createChallenge('MEDITATION');
-// createChallenge('KINDNESS');
+// createChallenge('MEDITATION');
 // createChallenge();
 // createChallenge('CITY_WALK_DC');
 // createChallenge('CITY_WALK_CHI');

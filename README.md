@@ -1,6 +1,6 @@
-# Scripts to setup data for ChallengesV2
+# Scripts to setup data for Health Activity
 
-Some scripts to setup challenges with users and challenge data. In `configs/configs.js` file, you can change the `tenant` const, which will then update the challengesV2 base URL.
+Some scripts to setup activities with users and challenge and mission data. In `configs/configs.js` file, you can change the `tenant` const, which will then update the base URL.
 
 ## Getting Started
 

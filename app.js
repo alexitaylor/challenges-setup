@@ -5,13 +5,19 @@ const clear = require('clear');
 const figlet = require('figlet');
 const inquirer = require('inquirer');
 const { generateUsers, createUser } = require('./usersScripts/scripts');
+// Challenge Scripts
 const { createChallenge } = require('./challengesScripts/generateChallenge');
 const { joinUsersToChallenge } = require('./challengesScripts/joinUsersToChallenge');
 const { generatePostCheckins } = require('./challengesScripts/postCheckins');
 const { generateNewTeams } = require('./challengesScripts/generateNewTeams');
 const { joinUsersToTeam } = require('./challengesScripts/joinUsersToTeam');
 const { deleteChallenges } = require('./challengesScripts/deleteChallenges');
-
+// Missions scripts
+const { joinUserToMissions } = require('./missionsScripts/joinUserToMission');
+const { addFocusedMissions } = require('./missionsScripts/addFocusedMissions');
+// Goal Pod Scritps
+const { updateUsersReadiness } = require('./goalPodScripts/updateUsersReadiness');
+const { quitUsersGoal } = require('./goalPodScripts/quitUsersGoal');
 
 const hostname = '127.0.0.1';
 const port = 3333;
@@ -54,7 +60,12 @@ const start = async () => {
 		'Post Checkins',
 		'Generate New Teams',
 		'Join Users to Team',
-		'Delete Challenges'];
+		'Delete Challenges',
+		'Join User to Missions',
+		'Add Focused Missions',
+		'Update Users Readiness',
+		'Quit Users Goal',
+	];
 
 
 	const challengeTypeChoices = [
@@ -154,6 +165,53 @@ const start = async () => {
 							challengeIds = challengeIds.split(', ');
 							await deleteChallenges(challengeIds);
 						}).catch(handleInquirerError);
+						break;
+					case 'Join User to Missions':
+						await inquirer.prompt([
+							{
+								type: 'input',
+								name: 'missionIds',
+								message: `${chalk.green('⚡️ Input mission IDs to join.')} ${chalk.yellow('👀 Comma separate mission IDs (e.g. ind14, ind25, ind34).')}\n`,
+							}
+						]).then(async ({ missionIds }) => {
+							missionIds = missionIds.split(', ');
+							await joinUserToMissions(missionIds);
+						}).catch(handleInquirerError);
+						break;
+					case 'Add Focused Missions':
+						await inquirer.prompt([
+							{
+								type: 'input',
+								name: 'missionIds',
+								message: `${chalk.green('⚡️ Input mission IDs to add to focused mission.')} ${chalk.yellow('👀 Comma separate mission IDs (e.g. ind14, ind25, ind34).')}\n`,
+							}
+						]).then(async ({ missionIds }) => {
+							missionIds = missionIds.split(', ');
+							await inquirer.prompt([
+								{
+									type: 'input',
+									name: 'focusArea',
+									message: `${chalk.green('⚡️ Input focus area.')} ${chalk.yellow('👀 e.g. nutrition')}\n`,
+								}
+							]).then(async ({ focusArea }) => {
+								await addFocusedMissions(missionIds, focusArea);
+							}).catch(handleInquirerError);
+						}).catch(handleInquirerError);
+						break;
+					case 'Update Users Readiness':
+						await inquirer.prompt([
+							{
+								type: 'input',
+								name: 'usersReadinessInput',
+								message: `${chalk.green('⚡️ Input users readiness input.')} ${chalk.yellow('👀 Currently hard coded, just hit enter.')}\n`,
+							}
+						]).then(async ({ usersReadinessInput }) => {
+							console.log('usersReadinessInput: ', usersReadinessInput);
+							await updateUsersReadiness();
+						}).catch(handleInquirerError);
+						break;
+					case 'Quit Users Goal':
+						await quitUsersGoal();
 						break;
 				}
 			}
